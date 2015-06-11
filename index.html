@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Consuming REST APIs with Restangular: The AngularJS way</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/prism.css">
+        <link rel="stylesheet" href="css/custom.css">
+    </head>
+    <body>
+    <article>
+      <section data-bespoke-state="start">
+        <div class="content">
+          <div class="unbrokenline"></div>
+          <h1>Flexbox: CSS3 Layout Mode </h1>
+          <div class="byline">
+            <div class="classy">
+              Por Alexander Berguer
+            </div>
+          </div>
+           <img src="img/full_pulpo.png" width="10%" style="opacity:0.4">                  
+        </div>
+      </section>
+
+      <section>
+        <div class="content">          
+          <h1>Qu&eacute; es flexbox?</h1>          
+            <div class="classy">
+              Es un modo de diseno para controlar predeciblemente <br>los elementos de una pagina
+            </div>          
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">          
+            <div class="classy">
+              A&uacute;n cuando los elementos tienen tamanos<br> 
+              desconocidos o din&aacute;micos. (yey)
+            </div>         
+        </div>
+      </section>
+      
+      <section data-bespoke-state="float">
+        <div class="content">
+          <h3>No mas Float's</h3>
+          <div class="classy">
+              Originalmente los float fueron creados para wrapear<br>
+              imagenes con textos en una pagina web.
+          </div>
+          <img src="img/web-text-wrap.png"> 
+        </div>
+      </section>
+
+      <section>
+        <div class="content">          
+            <h3>Problemas del Float</h3>
+            <div class="classy">
+               <div class="byline"> Cambian el flujo normal de una web. </div>
+            </div>
+            <div class="classy">
+               <div class="byline"> Sus posiciones son impredecibles </div>
+            </div>
+            <div class="classy">
+               <div class="byline"> Altos de items variables </div>
+            </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="content bordered" style="clear: both;">
+          <div style="background-color:rgba(255,0,0,0.4)" class="floating-div">
+            Im floating left
+          </div>
+          <div class="floating-div" style="background-color:rgba(128,128,128,0.4)">
+            I'm <br>floating left <br> too
+          </div>
+          <div class="floating-div" style="background-color:rgba(0,128,0,0.4)">
+            I'm also <br> floating left
+          </div>
+          <div class="classy"> Hay que "limpiar" los floats.</div>         
+        </div>         
+      </section>
+      
+      <section>
+        <div class="content">
+          <h3>Otros problemas</h3>
+          <div class="classy"> No tienen centrado vertical</div>
+          <div class="classy"> No tienen orden. (se necesitan js)</div>    
+
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <h3>Volviendo a Flexbox.. <b style="color:gray">Propiedades:</b></h3>
+          
+          <div class="classy">Habilidad para alterar el ancho y alto de elementos.</div>
+          
+          <div class="classy"> Mejor uso del espacio. Se adaptan "magicamente".</div>    
+          
+          <div class="classy"> Especificar el orden de los elementos,<br> 
+          de manera de independizarse del c&oacute;digo fuente.</div>    
+          
+          <div class="classy"> Utilizar mucho menos c&oacute;digo</div>    
+
+        </div>
+      </section>  
+      <section>
+        <div class="content">
+          <h3>Soporte en Browsers</h3>
+          <img src="img/caniuse.png" width="80%"/>
+          <div class="classy"> No hay excusas para no usarlo </div>
+          <small>En safari hay que agregar el prefijo -webkit</small> 
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <h3>Terminolog&iacute;a</h3><br>
+          <div class="classy"> El flex layout esta constituido por 2 componentes principales:</div><br>
+          <div class="classy"> El parent container y los child items<br> denominados flex-container y flex items, respectivamente.</div>    
+
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <h3>Support on Browsers</h3>
+          <img src="img/model.jpg" width="80%"/>          
+        </div>
+      </section>
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> Lo que nos interesa: Uso </h3><br><br>
+          
+          <div class="flex-container">      
+            <p class="hello">Un parent container se define con:</p>
+              <pre><code class="language-css">
+              .flex-container {
+                display: -webkit-flex; /* Safari */
+                display: flex;
+              }
+            </code></pre>
+          </div>
+          <small>Automaticamente sus hijos se vuelven flexibles.</small>
+        </div>
+      </section>
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> Direcci&oacute;n </h3><br><br>
+          <p class="hello">Especifica la direcci&oacute;n de los items <br>en el flex container.
+            Se setea la direcci&oacute;n del eje primario:</p>
+          <div class="flex-container">
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-flex-direction: row; /* Safari */
+                flex-direction:         row;
+              }
+              </code></pre>
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-flex-direction: column; /* Safari */
+                flex-direction:         column;
+              }
+              </code></pre> 
+          </div>
+          <div class="flex-container">
+            <img src="img/direction1.jpg" width="30%">
+            <img src="img/direction2.jpg" width="25%">
+          </div>
+          <p>Se pueden disponer tambi&eacute;n al reverso!</p>
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <h2>flex-wrap</h2>
+          <div class="classy">Por default, flexbox dispone los elementos en una sola linea.<br>
+Adapta los anchos de los hijos para que queden adentro del container.</div>
+            <img src="img/wrap1.jpg" width="50%">
+        </div>
+      </section>
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> flex-wrap </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-flex-wrap: wrap; /* Safari */
+                flex-wrap:         wrap;
+              }
+            </code></pre>
+            <img src="img/wrap2.jpg" width="50%">
+
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <h2>Flex-flow</h2>
+          <div class="classy">Atajo para no poner flex-wrap y flex-direction</div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">
+          <h2>Justify-Content</h2>
+          <h1>:D</h1>  
+          <div class="classy">Propiedad que permite alinear los elementos</div>
+        </div>
+     </section>
+
+     <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> flex-start </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-justify-content: flex-start; /* Safari */
+                justify-content:         flex-start;
+              }
+            </code></pre>
+            <img src="img/j1.jpg" width="40%">
+
+          </div>
+        </div>
+      </section> 
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> flex-end </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-justify-content: flex-end; /* Safari */
+                justify-content:         flex-end;
+              }
+            </code></pre>
+            <img src="img/j2.jpg" width="40%">
+
+          </div>
+        </div>
+      </section> 
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> center </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-justify-content: center; /* Safari */
+                justify-content:         center;
+              }
+            </code></pre>
+            <img src="img/j3.jpg" width="40%">
+
+          </div>
+        </div>
+      </section> 
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> space-between </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-justify-content: space-between; /* Safari */
+                justify-content:         space-between;
+              }
+            </code></pre>
+            <img src="img/j4.jpg" width="40%">
+
+          </div>
+        </div>
+      </section> 
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> space-around </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-justify-content: space-around; /* Safari */
+                justify-content:         space-around;
+              }
+            </code></pre>
+            <img src="img/j5.jpg" width="40%">
+
+          </div>
+        </div>
+      </section>
+
+     <section>
+        <div class="content">
+          <div class="classy"> Existen las mismas propiedades para el cross axe<br> 
+          con la propiedad align-content</div>
+        </div>
+      </section>
+      
+      <section data-bespoke-state="huge">
+        <div class="content">
+          <h2>Align-items <small>(Awesome!)</small></h2>
+
+          <div class="flex-container" style="justify-content: space-around">
+            <div>Stretch</div>
+            <div>flex-start</div>
+            <div>flex-end</div>
+          </div>
+          <div class="flex-container">
+            <img src="img/a0.jpg" width="30%">
+            <img src="img/a1.jpg" width="30%">
+            <img src="img/a2.jpg" width="30%">
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">
+          <h2>Vertical align?</h2>
+          <pre><code class="language-css">
+      vertical-align: middle;                   not
+      vertical-align: middle !important;        not
+      sudo vertical-align: middle !important;   lol
+            </code></pre>
+        </div>
+      </section>
+      <section data-bespoke-state="livecode">
+        <div class="content">
+          <h3> Vertical align </h3><br><br>
+          
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-container {
+                -webkit-align-items: center; /* Safari */
+                align-items:         center;
+              }
+            </code></pre>
+            <img src="img/a3.jpg" width="40%">
+
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">
+          <h2>PROPIEDADES de los items</h2><br><br>
+          <div class="flex-container" style="justify-content: space-around">
+            <div>Order</div>
+            <div>Grow</div>
+            <div>Basis</div>
+          </div>
+          <div class="flex-container">                  
+              <pre><code class="language-css">
+              .flex-item {
+                order: &lt;integer&gt;;
+              }
+            </code></pre>
+            <pre><code class="language-css">
+              .flex-item {
+                flex-grow: &lt;number&gt;;
+              }
+            </code></pre>
+            <pre><code class="language-css">
+              .flex-item {
+                flex-basis: &lt;width&gt;;
+              }
+            </code></pre>
+          </div>
+
+          <div class="flex-container">
+            <img src="img/i1.jpg" width="30%">
+            <img src="img/i2.jpg" width="30%">
+            <img src="img/i3.jpg" width="30%">
+
+          </div>
+        </div>
+      </section>
+      
+      <section data-bespoke-state="folks">
+        <div class="content">
+        <h2>Esto No es todo!</h2><br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br>  
+        </div>
+      </section>
+      
+      <section data-bespoke-state="angular">
+        <div class="content">
+          <h2>Flexbox Layout en Angular Material.</h2><br>
+          <div class="classy"> Material design trae implementado este layout</div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">
+        <div class="flex-container">
+          <pre><code class="language-markup">
+&lt;div layout="row" layout-wrap&gt;
+    &lt;div flex="50" flex-order="1"&gt;
+      item 1
+    &lt;/div&gt;
+    &lt;div flex="50"&gt;
+      item2
+    &lt;/div&gt;  
+&lt;/div&gt;
+            </code></pre>
+            <div style="text-align:left !important; padding-left:100px">
+              para setear anchos (flex-basis) en los items se usa flex="number"<br><br>
+
+              para los ordenes de los items flex-order <br><br>
+
+              Para multilineas se agrega layout-wrap <br><br>
+
+              Para setear alineaciones se utiliza layout-align="property" <br><br>
+            </div>
+        </div>
+
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">
+          <h2>La gran Ventaja del layout de Angular Material</h2>
+          <div class="classy"> MEDIA QUERIES</div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="content">
+          <div class="flex-container">
+            
+            <div class="classy">layouts disponibles</div>
+            <div class="classy">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+            <div class="classy">media queries para basis </div>
+          </div>
+          <div class="flex-container">
+            <pre><code class="language-markup">
+layout-lg
+layout-gt-lg
+layout-md
+layout-gt-md
+layout-sm
+layout-gt-sm
+            </code></pre>
+            <pre><code class="language-markup">
+flex-lg
+flex-gt-lg
+flex-md
+flex-gt-md
+flex-sm
+flex-gt-sm
+            </code></pre>
+          </div>  
+
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="content">
+          <h3>Muchas Gracias</h3>
+          <div class="byline">
+            <div class="classy">
+              Preguntas?
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Tauri::latin', 'Alegreya:400italic:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })(); 
+    </script>
+    <script src="js/bespoke.js"></script>
+    <script src="js/deck.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.bootstrap.js"></script>
+    <script src="js/app.basic.js"></script>
+    </body>
+</html>
